@@ -1,5 +1,7 @@
 import FirstSlider from "./FirstSlider"
+import NextSetction from "./NextSetction"
 import SecondSlider from "./SecondSlider"
+import ThirdSlider from "./ThirdSlider"
 
 
 const Sliders=()=>{
@@ -7,6 +9,8 @@ const Sliders=()=>{
     <>
     <FirstSlider/> 
     <SecondSlider/>
+    <ThirdSlider/>
+    <NextSetction/>
     </>
     )
 }
