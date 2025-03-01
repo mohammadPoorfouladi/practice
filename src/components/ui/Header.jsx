@@ -15,12 +15,11 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 
 const Header=()=>{
-
     return(
        <>
 <AppBar position="static" sx={{ backgroundColor: 'white', borderBottom: 1.5, p:0,
-  borderColor: grey[200],px:{xs:.3,md:1}, py:{xs:1.5,sm:3}}} elevation={0} >
-      <Toolbar sx={{mt:{xs:0,sm:2.6},p:0 , display:"block"}}>
+  borderColor: grey[200],px:{xs:.3,md:1}, py:{xs:1.5,md:3}}} elevation={0} >
+      <Toolbar sx={{mt:{xs:0,sm:0,md:2.6},p:0 , display:"block"}}>
      
         <Box sx={{ display: "flex",alignItems:{xs:"center"} ,justifyContent:"space-between", width: '100%' }}>
         
@@ -37,7 +36,7 @@ const Header=()=>{
             <Box sx={{ display: "flex",  alignItems: "center", gap: 1.5 }}>
           
 
-              <Box sx={{mr:{xs:.9,md:0}, mb:{md:.4}, width:{xs:"130px",md:"117.4px"},height: { xs: '50.6px', md: '42.9px'}}}>
+              <Box sx={{mr:{xs:.9,md:0}, mb:{md:.5}, width:{xs:"130px",md:"117.6px"},height: { xs: '50.6px', md: '42.9px'}}}>
                 <img src="https://masaf.ir/_next/static/media/masaf.ad4a5f49.svg" alt="logo" 
                 style={{  width: '100%', height: 'auto'  }} />
               </Box>
@@ -54,7 +53,7 @@ const Header=()=>{
                   width:"34.4rem",display:{xs:"none",md:"flex"},
                   gap:1
                 }}>
-                  <SearchIcon />s
+                  <SearchIcon />
                   <Typography  sx={{ color: grey[600]}}>
                     جست و جوی محتوا، سخنرانی ها و...
                   </Typography>
@@ -72,20 +71,15 @@ const Header=()=>{
               fontWeight: "4px",
               borderColor: blueGrey[300],
               borderRadius: 2, mb:{xs:.5,md:.5},
-            mr:{xs:.7,md:0},
-              ":hover":{
-                backgroundColor:grey[300]
-              }
-            }}>
-              <PersonIcon sx={{ color: blueGrey[600] }} />
-              <Typography sx={{ color: blueGrey[700], mr: .3 }}>
+            mr:{xs:.7,md:0},  
+              }}>
+              <PersonIcon sx={{ color: "#006064"}} />
+              <Typography sx={{ color:"#006064", mr: .3 }}>
                 ورود  |  ثبت نام
               </Typography>
             </Button>
           </Box>
-
-
-
+          
         </Box>
 
 
@@ -116,9 +110,6 @@ const Header=()=>{
      
         </Box> 
      
-
-
-
         
   <Box sx={{mt:4.9 , alignItems:"center" ,gap:1.7 ,mb:.3,
    display:{xs:"none",md:"flex"}

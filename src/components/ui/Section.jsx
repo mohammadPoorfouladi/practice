@@ -14,7 +14,7 @@ const Section =()=>{
         }}
     >
      
-        <Card sx={{ width: { xs: "96.8%",sm:"88.4%" }, borderRadius: '20x'
+        <Card sx={{ width: { xs: "96.6%",md:"88.4%",}, borderRadius: '20x'
         ,  mt: 3.8 ,
         border: 'none',
         boxShadow: 'none',
@@ -24,18 +24,18 @@ const Section =()=>{
                 component="img"
                 image="https://cdn.masaf.ir/survey/b7e202cf-0c0a-4341-a4e3-73db01dcf282_33"
                 alt="photo1"
-                sx={{ borderRadius:{}, }}
+                sx={{ borderRadius:'14px', }}
             />
    
         </Card>
 
-     <Box sx={{width:{xs:"100%",sm:"88.4%"} ,display:"flex" 
+     <Box sx={{width:{xs:"100%",sm:"88.3%"} ,display:"flex" 
         ,flexDirection:{xs:"column",sm:"row"},
         alignItems:"center",gap:2,
-        mt:{xs:3.4} ,mb:4
+        mt:{xs:3.5} ,mb:4
         }}>
 
-     <Card sx={{ width: { xs:"87.3%",md: "86.7%" },
+     <Card sx={{ width: { xs:"86.7%",md: "86.7%" },
             borderRadius: '16px',
             border: 'none',
             boxShadow: 'none'
@@ -48,7 +48,7 @@ const Section =()=>{
             />
      
         </Card>
-        <Card sx={{ width: { xs:"87.3%",md: "86.7%" },
+        <Card sx={{ width: { xs:"86.7%",md: "86.7%" },
             borderRadius: '16px',
             border: 'none',
             boxShadow: 'none'
@@ -61,7 +61,7 @@ const Section =()=>{
             />
      
         </Card>
-        <Card sx={{ width: {xs:"87.3%", md: "86.7%" },
+        <Card sx={{ width: {xs:"86.7%", md: "86.7%" },
             borderRadius: '16px',
             border: 'none',
             boxShadow: 'none'
@@ -70,7 +70,7 @@ const Section =()=>{
                 component="img"
                 image="https://cdn.masaf.ir/survey/078a9420-b040-49b7-b281-374ac93aaaa1_3-"
                 alt="photo4"
-              
+                
             />
      
         </Card>

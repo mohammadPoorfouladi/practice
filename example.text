@@ -1,0 +1,476 @@
+//     <Grid container spacing={2} sx={{ padding: 2 }}>
+//       <Grid container>
+//         <Grid item xs={6}>
+
+//         </Grid>
+//         <Grid item xs={6}>
+
+//         </Grid>
+//       </Grid>
+//       <Grid container spacing={1}>      
+//       <Grid item xs={12}>
+//       <Typography variant="h4" align="center" gutterBottom>
+//         گرید پیچیده
+//       </Typography>
+//     </Grid>
+
+//     <Grid item xs={12} sm={6}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h5">ستون 1</Typography>
+//           <Typography variant="body2">
+//             این یک توضیح برای ستون اول است. می‌توانید اینجا متن بیشتری اضافه کنید.
+//           </Typography>
+//           <Button variant="contained" color="primary" sx={{ marginTop: 2 }}>
+//             اقدام 1
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+
+//     <Grid item xs={12} sm={6}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h5">ستون 2</Typography>
+//           <Typography variant="body2">
+//             این یک توضیح برای ستون دوم است. می‌توانید اینجا متن بیشتری اضافه کنید.
+//           </Typography>
+//           <Button variant="contained" color="secondary" sx={{ marginTop: 2 }}>
+//             اقدام 2
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+
+//     {/* ردیف سوم: سه ستون */}
+//     <Grid item xs={12} sm={4}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h6">ستون 3</Typography>
+//           <Typography variant="body2">
+//             توضیحات برای ستون سوم.
+//           </Typography>
+//           <Button variant="outlined" color="primary" sx={{ marginTop: 2 }}>
+//             اقدام 3
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+
+//     <Grid item xs={12} sm={4}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h6">ستون 4</Typography>
+//           <Typography variant="body2">
+//             توضیحات برای ستون چهارم.
+//           </Typography>
+//           <Button variant="outlined" color="secondary" sx={{ marginTop: 2 }}>
+//             اقدام 4
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+
+//     <Grid item xs={12} sm={4}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h6">ستون 5</Typography>
+//           <Typography variant="body2">
+//             توضیحات برای ستون پنجم.
+//           </Typography>
+//           <Button variant="outlined" color="success" sx={{ marginTop: 2 }}>
+//             اقدام 5
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+
+//     {/* ردیف چهارم: یک ستون بزرگ */}
+//     <Grid item xs={12}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//             این یک توضیح برای ستون بزرگ است که تمام عرض را می‌گیرد.
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+//     <Grid item xs={4}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//             این یک توضیح برای ستون بزرگ است که تمام عرض را می‌گیرد.
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+//     <Grid item xs={8}>
+//       <Box>
+//         <Grid container>
+//           <Grid item xs={3}>
+//           <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//            ستون 
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//           </Grid>
+//           <Grid item xs={3}>
+//           <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//            ستون 
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//           </Grid>
+//           <Grid item xs={3}>
+//           <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//            ستون 
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//           </Grid>
+//           <Grid item xs={3}>
+//           <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//            ستون 
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//           </Grid>
+//         </Grid>
+//       </Box>
+//     </Grid>
+//     <Grid item xs={5}>
+//     <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//            ستون 
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+//     <Grid item xs={7}>
+//     <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//            ستون 
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+// </Grid>
+//         </Grid>
+
+//         <Grid container spacing={1}>      
+//       <Grid item xs={12}>
+//       <Typography variant="h4" align="center" gutterBottom>
+//         گرید پیچیده
+//       </Typography>
+//     </Grid>
+
+//     {/* ردیف دوم: دو ستون */}
+//     <Grid item xs={12} sm={6}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h5">ستون 1</Typography>
+//           <Typography variant="body2">
+//             این یک توضیح برای ستون اول است. می‌توانید اینجا متن بیشتری اضافه کنید.
+//           </Typography>
+//           <Button variant="contained" color="primary" sx={{ marginTop: 2 }}>
+//             اقدام 1
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+
+//     <Grid item xs={12} sm={6}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h5">ستون 2</Typography>
+//           <Typography variant="body2">
+//             این یک توضیح برای ستون دوم است. می‌توانید اینجا متن بیشتری اضافه کنید.
+//           </Typography>
+//           <Button variant="contained" color="secondary" sx={{ marginTop: 2 }}>
+//             اقدام 2
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+
+//     {/* ردیف سوم: سه ستون */}
+//     <Grid item xs={12} sm={4}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h6">ستون 3</Typography>
+//           <Typography variant="body2">
+//             توضیحات برای ستون سوم.
+//           </Typography>
+//           <Button variant="outlined" color="primary" sx={{ marginTop: 2 }}>
+//             اقدام 3
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+
+//     <Grid item xs={12} sm={4}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h6">ستون 4</Typography>
+//           <Typography variant="body2">
+//             توضیحات برای ستون چهارم.
+//           </Typography>
+//           <Button variant="outlined" color="secondary" sx={{ marginTop: 2 }}>
+//             اقدام 4
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+
+//     <Grid item xs={12} sm={4}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h6">ستون 5</Typography>
+//           <Typography variant="body2">
+//             توضیحات برای ستون پنجم.
+//           </Typography>
+//           <Button variant="outlined" color="success" sx={{ marginTop: 2 }}>
+//             اقدام 5
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+
+//     {/* ردیف چهارم: یک ستون بزرگ */}
+//     <Grid item xs={12}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//             این یک توضیح برای ستون بزرگ است که تمام عرض را می‌گیرد.
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+//     <Grid item xs={4}>
+//       <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//             این یک توضیح برای ستون بزرگ است که تمام عرض را می‌گیرد.
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+//     <Grid item xs={8}>
+//       <Box>
+//         <Grid container>
+//           <Grid item xs={3}>
+//           <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//            ستون 
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//           </Grid>
+//           <Grid item xs={3}>
+//           <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//            ستون 
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//           </Grid>
+//           <Grid item xs={3}>
+//           <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//            ستون 
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//           </Grid>
+//           <Grid item xs={3}>
+//           <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//            ستون 
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//           </Grid>
+//         </Grid>
+//       </Box>
+//     </Grid>
+//     <Grid item xs={3}>
+//     <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//            ستون 
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+//     </Grid>
+//     <Grid item xs={3}></Grid>
+//     <Grid item xs={3}>
+//     <Card>
+//         <CardContent>
+//           <Typography variant="h5" align="center">ستون بزرگ</Typography>
+//           <Typography variant="body2">
+//            ستون 
+//           </Typography>
+//           <Button variant="contained" color="info" sx={{ marginTop: 2 }}>
+//             اقدام بزرگ
+//           </Button>
+//         </CardContent>
+//       </Card>
+// </Grid>
+// <Grid item xs={3}></Grid>
+//         </Grid>
+
+//     {/* ردیف اول */}
+
+//   </Grid>
+{/* <Container sx={{ padding: 4 }}>
+<Box sx={{ marginBottom: 4 }}>
+  <Typography variant='h1' color={blueGrey[600]} gutterBottom>
+    سلام
+  </Typography>
+  <Typography variant='h1' component="article" color={red[400]}>
+    چطوری؟
+  </Typography>
+  <Typography variant="h1" component="h1"  color="text.secondary" gutterBottom>
+    عنوان اصلی (H1)
+  </Typography>
+  <Typography variant="body1" color="text.secondary">
+    این یک متن توضیحی برای عنوان اصلی است. می‌توانید از اینجا اطلاعات بیشتری اضافه کنید.
+  </Typography>
+</Box>
+
+<Box sx={{ marginBottom: 4 }}>
+  <Typography variant="h2" component="h2" gutterBottom>
+    عنوان فرعی (H2)
+  </Typography>
+  <Typography variant="body1" color="text.secondary">
+    این یک متن توضیحی برای عنوان فرعی است. اینجا می‌توانید جزئیات بیشتری اضافه کنید.
+  </Typography>
+</Box>
+
+<Box sx={{ marginBottom: 4 }}>
+  <Typography variant="h3" component="h3" gutterBottom>
+    عنوان سوم (H3)
+  </Typography>
+  <Typography variant="body1" color="text.secondary">
+    این یک متن توضیحی برای عنوان سوم است. می‌توانید از اینجا اطلاعات بیشتری اضافه کنید.
+  </Typography>
+</Box>
+
+<Box sx={{ marginBottom: 4 }}>
+  <Typography variant="h4" component="h4" gutterBottom>
+    عنوان چهارم (H4)
+  </Typography>
+  <Typography variant="body1" color="text.secondary">
+    این یک متن توضیحی برای عنوان چهارم است. اینجا می‌توانید جزئیات بیشتری اضافه کنید.
+  </Typography>
+</Box>
+
+<Box sx={{ marginBottom: 4 }}>
+  <Typography variant="h5" component="h5" gutterBottom>
+    عنوان پنجم (H5)
+  </Typography>
+  <Typography variant="body1" color="text.secondary">
+    این یک متن توضیحی برای عنوان پنجم است. می‌توانید از اینجا اطلاعات بیشتری اضافه کنید.
+  </Typography>
+</Box>
+
+<Box sx={{ marginBottom: 4 }}>
+  <Typography variant="h6" component="h6" gutterBottom>
+    عنوان ششم (H6)
+  </Typography>
+  <Typography variant="body1" color="text.secondary">
+    این یک متن توضیحی برای عنوان ششم است. اینجا می‌توانید جزئیات بیشتری اضافه کنید.
+  </Typography>
+</Box>
+
+<Box sx={{ marginBottom: 4 }}>
+  <Typography variant="body1" gutterBottom>
+    این یک متن بدنه (Body) است. می‌توانید از اینجا اطلاعات بیشتری اضافه کنید.
+  </Typography>
+  <Typography variant="body2" color="text.secondary" gutterBottom>
+    این یک متن بدنه کوچک‌تر (Body 2) است. اینجا می‌توانید جزئیات بیشتری اضافه کنید.
+  </Typography>
+</Box>
+
+<Box sx={{ marginBottom: 4 }}>
+  <Typography variant="caption" color="text.secondary" gutterBottom>
+    این یک توضیحات کوتاه (Caption) است. معمولاً برای توضیحات اضافی یا یادداشت‌ها استفاده می‌شود.
+  </Typography>
+  <Typography variant="overline" color="text.secondary">
+    این یک متن خطی (Overline) است. معمولاً برای عناوین یا توضیحات خاص استفاده می‌شود.
+  </Typography>
+</Box>
+</Container> */}

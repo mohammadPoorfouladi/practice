@@ -1,5 +1,6 @@
 import MainLayout from "./components/Layouts/MainLatout"
 import Contents from "./components/ui/Contents";
+import Footer from "./components/ui/Footer";
 import FourthSlider from "./components/ui/FourthSlider";
 import Header from "./components/ui/Header";
 import LastSlider from "./components/ui/LastSlider";
@@ -16,6 +17,7 @@ const App=()=>{
 <FourthSlider/>
 <LastSlider/>
 <Contents/>
+<Footer/>
 </MainLayout>
   )
 }

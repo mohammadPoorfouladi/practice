@@ -128,3 +128,131 @@ export const secondSliders=[
     }
 ]
 
+export const thirdSliders=[
+    {
+
+
+        caption:"توییت استاد رائفی پور «تحریف در روز روشن؟!»"
+    },
+    {
+
+  
+        caption:"توییت استاد رائفی پور درمورد «فرهنگ منطقه قفقاز»"
+    },
+    {
+
+
+        caption:"توییت استاد رائفی پور درمورد اهمیت خانواده"
+    },
+    {
+
+
+        caption:"وئیت استاد رائفی پور درمورد کشمکش ایران و ترکیه"
+    },
+    {
+
+        caption:"توئیت استاد رائفی پور درمورد کشمکش ایران و ترکیه"
+    },
+    {
+
+      
+        caption:"توییت استاد رائفی‌ پور و پاسخ به علی دانشمند"
+    },
+    {
+
+
+        caption:"توییت استاد رائفی پور درمورد «فرهنگ منطقه قفقاز»"
+    },
+    {
+
+
+        caption:"توییت استاد رائفی پور درمورد دروغ بزرگ پانترک ها"
+    },
+    {
+
+  
+        caption:"توییت استاد رائفی پور «تحریف در روز روشن؟!»"
+    },
+    {
+
+  
+        caption:"توییت استاد رائفی پور «ما در بین دو تهدید قرار داریم»"
+    },
+    {
+
+
+        caption:"توییت استاد رائفی پور درمورد «شیوع ویروس جدیدی در چین»"
+    },
+    {
+ 
+
+        caption:"توییت استاد رائفی پور درمورد «استقلال کره جنوبی»"
+    }
+]
+
+
+
+
+
+export const fourthSlider=[
+    {
+        media:"https://cdn.masaf.ir/contents/media/coverImage/post_4.jpg",
+      title:"جشنواره  ویژه نیمه شعبان",
+        caption:"جشنواره  ویژه نیمه شعبان"
+    },
+    {
+    media:"https://cdn.masaf.ir/contents/media/coverImage/۵_VlHpdXz.jpg",
+             title:'بغضی کوتاه از علی',
+        caption:"متن کوتاه"
+    },
+    {
+    media:"https://cdn.masaf.ir/contents/media/coverImage/۴_HpBmzGH.jpg",
+           title:"میدان مغناطیسی مهدوی",
+        caption:"میدان مغناطیسی مهدوی"
+    },
+    {
+    media:"https://cdn.masaf.ir/contents/media/coverImage/۲_NXT5ulF.jpg",
+       title:"سلام بر بنده خدا",
+        caption:"متن کوتاه"
+    },
+    {
+    media:"https://cdn.masaf.ir/contents/media/coverImage/۱_I8GbcK3.jpg",
+          title:"ملکه درونی",
+        caption:"ملکه درونی"
+    },
+    {
+    media:"https://cdn.masaf.ir/contents/media/coverImage/۲_PGfohwt.jpg",
+            title:"سلام بر خلیل‌الله",
+        caption:"متنی کوتاه"
+    },
+    {
+    media:"https://cdn.masaf.ir/contents/media/coverImage/۱_0DwDsge.jpg",
+      title:"میدان مغناطیسی",
+        caption:"میدان مغناطیسی"
+    },
+    {
+    media:"https://cdn.masaf.ir/contents/media/coverImage/۱_0DwDsge.jpg",
+        title:"میدان مغناطیسی",
+        caption:"میدان مغناطیسی"
+    },
+    {
+    media:"https://cdn.masaf.ir/contents/media/coverImage/photo_۲%DB%B0۲۲-%DB%B0۶-%DB%B0۸_۱۶-%DB%B0۳-۱۹.jpg",
+        title:"خاندان شیطانی",
+        caption:"متن کوتاه "
+    },
+    {
+    media:"https://cdn.masaf.ir/contents/media/coverImage/۱_tnzblVl.jpg",
+        title:"قانون‌ها شبیه عقل عمل می‌کنند...",
+        caption:"مصاف با درون"
+    },
+    {
+    media:"https://cdn.masaf.ir/contents/media/coverImage/۲_fqq3bjX.jpg",
+        title:"میدان مغناطیسی",
+        caption:"میدان مغناطیسی"
+    },
+    {
+    media:"https://cdn.masaf.ir/contents/media/coverImage/۲_fqq3bjX.jpg", 
+            title:"میدان مغناطیسی",
+        caption:"میدان مغناطیسی"
+    }
+]

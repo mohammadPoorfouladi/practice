@@ -58,7 +58,7 @@ const FirstSlider = () => {
 
   return (
     <>
-      <Box>
+      <Box sx={{ overflow: 'hidden', width: '100%' }}>
         <Box sx={{
           width: "100%", display: "flex",
           justifyContent: "center", mt: { xs: 7, md: 7.1 },
