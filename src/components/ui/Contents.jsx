@@ -1,9 +1,33 @@
-import { Box, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
-import { grey } from "@mui/material/colors";
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import TextSnippetIcon from '@mui/icons-material/TextSnippet';
+import { Box, Button, Card, CardContent, CardMedia, Skeleton, Typography } from "@mui/material";
+import { grey } from "@mui/material/colors";
+import Grid from '@mui/material/Grid2';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const Contents = () => {
+    const [data, setData] = useState([]);
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            try {
+                const response = await axios.get("https://api.masaf.ir/api/v1/content/randContent/");
+                setData(response.data.data);
+            } catch (error) {
+                setError("Error");
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, []);
+
+    if (error) return <p>{error}</p>;
+
     return (
         <Box sx={{
             width: "100%",
@@ -31,116 +55,94 @@ const Contents = () => {
                     mt: 4.7
                 }}>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card sx={{
-                                borderRadius: 3,
-                                border: 1,
-                                borderColor: grey[300],
-                                boxShadow: "0",
-                                height: 497,
-                                width: "100%"
-                            }}>
-                                <CardMedia
-                                    component="img"
-                                    image="https://cdn.masaf.ir/contents/media/coverImage/MASAF-Prof01.jpg"
-                                    alt="video description"
-                                    sx={{ width: '100%', height: 255 }}
-                                />
-                                <CardContent sx={{ px: 2.5, height: 153 }}>
-                                    <Typography sx={{ display: "flex", alignItems: "center", gap: 1.3, mb: 1.7 }} variant="body2" fontWeight={"bold"}>
-                                        <TextSnippetIcon sx={{ color: grey[400] }} />
-                                        ارزش صبر در انتظار است آیا میتوان به سادگی به مرحله بالایی بیش از تصور در  صبر رسید؟؟
-                                    </Typography>
-                                    <Typography variant="body1" color="text.secondary" sx={{ pb: 1 }}>
-                                        پرسش و پاسخ مهدوی 
-                                    </Typography>
-                                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 1, mt: 10.2 }}>
-                                        <Box sx={{ display: "flex", gap: 7, alignItems: "center", mr: 0 }}>
-                                            <Typography variant="caption" sx={{ display: "flex", alignItems: "center", gap: .4 }}>
-                                                <CalendarMonthOutlinedIcon sx={{ color: grey[600], width: "27px", height: "27px" }} />
-                                                ۱۴۰۳/۲/۱۲
-                                            </Typography>
-                                            <Typography variant="caption">مهدیاران</Typography>
-                                        </Box>
-                                    </Box>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-              
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card sx={{
-                                borderRadius: 3,
-                                border: 1,
-                                borderColor: grey[300],
-                                boxShadow: "0",
-                                height: 497,
-                                width: "100%"
-                            }}>
-                                <CardMedia
-                                    component="img"
-                                    image="https://cdn.masaf.ir/contents/media/coverImage/MASAF-Prof01.jpg"
-                                    alt="video description"
-                                    sx={{ width: '100%', height: 255, }}
-                                />
-                                <CardContent sx={{ px: 2.5, height: 153 }}>
-                                    <Typography sx={{ display: "flex", alignItems: "center", gap: 1.3, mb: 1.7 }} variant="body2" fontWeight={"bold"}>
-                                        <TextSnippetIcon sx={{ color: grey[400] }} />
-                                        آیا امام زمان به صدقات ما برای سلامتیِ شان و اعمال مستحبی ما به نیابت از ایشان نیاز دارند؟
-                                    </Typography>
-                                    <Typography variant="body1" color="text.secondary" sx={{ pb: 1 }}>
-                                        پرسش و پاسخ مهدوی 
-                                    </Typography>
-                                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 1, mt: 10.2 }}>
-                                        <Box sx={{ display: "flex", gap: 7, alignItems: "center", mr: 0 }}>
-                                            <Typography variant="caption" sx={{ display: "flex", alignItems: "center", gap: .4 }}>
-                                                <CalendarMonthOutlinedIcon sx={{ color: grey[600], width: "27px", height: "27px" }} />
-                                                ۱۴۰۳/۲/۱۲
-                                            </Typography>
-                                            <Typography variant="caption">مهدیاران</Typography>
-                                        </Box>
-                                    </Box>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card sx={{
-                                borderRadius: 3,
-                                border: 1,
-                                borderColor: grey[300],
-                                boxShadow: "0",
-                                height: 497,
-                                width: "100%"
-                            }}>
-                                <CardMedia
-                                    component="img"
-                                    image="https://cdn.masaf.ir/contents/media/coverImage/MASAF-Prof01.jpg"
-                                    alt="video description"
-                                    sx={{ width: '100%', height: 255.5, }}
-                                />
-                                <CardContent sx={{ px: 2.5, height: 153 }}>
-                                    <Typography sx={{ display: "flex", alignItems: "center", gap: 1.3, mb: 1.7 }} variant="body2" fontWeight={"bold"}>
-                                        <TextSnippetIcon sx={{ color: grey[400] }} />
-                                        آیا امام زمان به صدقات ما برای سلامتیِ شان و اعمال مستحبی ما به نیابت از ایشان نیاز دارند؟
-                                    </Typography>
-                                    <Typography variant="body1" color="text.secondary" sx={{ pb: 1 }}>
-                                        پرسش و پاسخ مهدوی 
-                                    </Typography>
-                                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 1, mt: 10.2 }}>
-                                        <Box sx={{ display: "flex", gap: 7, alignItems: "center", mr: 0 }}>
-                                            <Typography variant="caption" sx={{ display: "flex", alignItems: "center", gap: .4 }}>
-                                                <CalendarMonthOutlinedIcon sx={{ color: grey[600], width: "27px", height: "27px" }} />
-                                                ۱۴۰۳/۲/۱۲
-                                            </Typography>
-                                            <Typography variant="caption">مهدیاران</Typography>
-                                        </Box>
-                                    </Box>
-                                </CardContent>
-                            </Card>
-                        </Grid>
+                        {loading ? (
+                            Array.from(new Array(3)).map((_, index) => (
+                                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
+                                    <Card sx={{
+                                        borderRadius: 3,
+                                        border: 1,
+                                        borderColor: grey[300],
+                                        boxShadow: "0",
+                                        height: 497,
+                                        width: "100%",
+                                        display: "flex",
+                                        flexDirection: "column"
+                                    }}>
+                                        <Skeleton variant="rectangular" width="100%" height={255} />
+                                        <CardContent sx={{
+                                            px: 1.5, flexGrow: 1, display: "flex",
+                                            flexDirection: "column", justifyContent: "space-between"
+                                        }}>
+                                            <Skeleton variant="text" width="80%" height={20} />
+                                            <Skeleton variant="text" width="100%" height={20} />
+                                        </CardContent>
+                                    </Card>
+                                </Grid>
+                            ))
+                        ) : (
+                            data.map((info) => (
+                                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={info.id}>
+                                    <Card sx={{
+                                        borderRadius: 3,
+                                        border: 1,
+                                        borderColor: grey[300],
+                                        boxShadow: "0",
+                                        height: 497,
+                                        width: "100%",
+                                        display: "flex",
+                                        flexDirection: "column"
+                                    }}>
+                                        <CardMedia
+                                            component="img"
+                                            image={info.coverImage}
+                                            alt="video description"
+                                            sx={{ width: '100%', height: 255 }}
+                                        />
+                                        <CardContent sx={{ px: 1.5, flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                                            <Box>
+                                                <Typography sx={{ display: "flex", alignItems: "center", gap: 1.3, mb: 1.7 }} variant="body2" fontWeight={"bold"}>
+                                                    <TextSnippetIcon sx={{ color: grey[400] }} />
+                                                    {info.title}
+                                                </Typography>
+                                                <Typography variant="body2" color="text.secondary" sx={{ pb: 1 }}>
+                                                    {info.summary}
+                                                </Typography>
+                                            </Box>
+                                            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "auto" }}>
+                                                <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+                                                    <Typography variant="caption" sx={{ display: "flex", alignItems: "center", gap: .4 }}>
+                                                        <CalendarMonthOutlinedIcon sx={{ color: grey[600], width: "27px", height: "27px" }} />
+                                                        {info.occurrenceAt.date}
+                                                    </Typography>
+                                                    <Box sx={{ display: "flex", gap: 1 }}>
+                                                        <Button
+                                                            sx={{
+                                                                width: 20,
+                                                                height: 20,
+                                                                padding: 0,
+                                                                boxShadow: 0,
+                                                                minWidth: 'auto',
+                                                                '&:hover': {
+                                                                    boxShadow: 0
+                                                                },
+                                                            }}
+                                                            variant="contained">
+                                                            <img src={info.portal.image} alt="Icon" style={{ width: '100%', height: '100%' }} />
+                                                        </Button>
+                                                        <Typography sx={{ fontSize: "12px" }}>{info.portal.name}</Typography>
+                                                    </Box>
+                                                </Box>
+                                            </Box>
+                                        </CardContent>
+                                    </Card>
+                                </Grid>
+                            ))
+                        )}
                     </Grid>
                 </Box>
             </Box>
         </Box>
-    )
-}
+    );
+};
+
 export default Contents

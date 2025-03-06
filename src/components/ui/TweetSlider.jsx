@@ -1,26 +1,52 @@
-import { Avatar, Box, Button, Card, CardContent, CardMedia, Divider, IconButton, Link, Typography } from "@mui/material";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import { grey } from "@mui/material/colors";
 import VerifiedIcon from '@mui/icons-material/Verified';
-import { thirdSliders } from "../data/slidersContent";
+import { Avatar, Box, Button, Card, CardContent, IconButton, Link, Skeleton, Typography } from "@mui/material";
+import { grey } from "@mui/material/colors";
+import Grid from '@mui/material/Grid2';
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { thirdSliders } from "../data/slidersContent";
 
-const ThirdSlider = () => {
+const TweetSlider = () => {
+
+  const [data, setData] = useState([]);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true)
+      try {
+        const response = await axios.get('https://api.masaf.ir/api/v1/category/contentByCategory/?categoryId=3')
+        setData(response.data.data)
+      } catch (err) {
+        setError('Error');
+      } finally {
+        setLoading(false)
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (error) return <p>{error}</p>;
+
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalSlides = thirdSliders.length;
-  const [slidesToShow, setSlidesToShow] = useState(1); 
+  const [slidesToShow, setSlidesToShow] = useState(1);
 
 
   const updateSlidesToShow = () => {
     if (window.innerWidth < 600) {
-      setSlidesToShow(1); 
+      setSlidesToShow(1);
     } else if (window.innerWidth < 900) {
       setSlidesToShow(2);
     } else if (window.innerWidth < 1200) {
       setSlidesToShow(3);
     } else {
-      setSlidesToShow(4); 
+      setSlidesToShow(4);
     }
   };
 
@@ -29,20 +55,20 @@ const ThirdSlider = () => {
     updateSlidesToShow();
 
     window.addEventListener('resize', updateSlidesToShow);
-    
+
     const interval = setInterval(() => {
       setCurrentIndex(prevIndex => {
         const resetAfter = slidesToShow === 1 ? 1 : (slidesToShow === 2 ? 2 : (slidesToShow === 3 ? 3 : 4));
         if (prevIndex >= totalSlides - resetAfter) {
           return 0;
         }
-        return prevIndex + 1; 
+        return prevIndex + 1;
       });
     }, 3000);
 
     return () => {
-      clearInterval(interval); 
-      window.removeEventListener('resize', updateSlidesToShow); 
+      clearInterval(interval);
+      window.removeEventListener('resize', updateSlidesToShow);
     };
   }, [totalSlides, slidesToShow]);
 
@@ -113,6 +139,31 @@ const ThirdSlider = () => {
 
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Box sx={{ mt: { xs: 3.6, md: 4.1 }, overflow: 'hidden', width: "90.3%" }}>
+              {loading && (
+                <Box>
+                  <Grid container spacing={{ sm: 1, md: 5, lg: 4.5 }}>
+                    <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+                      <Skeleton sx={{ backgroundColor: grey[200] }} variant="rounded" height={330} />
+                    </Grid>
+                    <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+                      sx={{ display: { xs: "none", sm: "block" } }}
+                    >
+                      <Skeleton sx={{ backgroundColor: grey[200] }} variant="rounded" height={330} />
+                    </Grid>
+                    <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+                      sx={{ display: { xs: "none", sm: "none", md: "block" } }}
+                    >
+                      <Skeleton sx={{ backgroundColor: grey[200] }} variant="rounded" height={330} />
+                    </Grid>
+                    <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+                      sx={{ display: { xs: "none", sm: "none", md: "none", lg: "block" } }}
+                    >
+                      <Skeleton sx={{ backgroundColor: grey[200] }} variant="rounded" height={330} />
+                    </Grid>
+                  </Grid>
+
+                </Box>
+              )}
               <Box
                 sx={{
                   display: 'flex',
@@ -122,9 +173,9 @@ const ThirdSlider = () => {
                   width: `${(totalSlides / slidesToShow) * 100}%`,
                 }}
               >
-                {thirdSliders.map((slider, index) => (
+                {data.map((slider) => (
                   <Card
-                    key={index}
+                    key={slider.id}
                     sx={{
                       borderRadius: 1.9,
                       margin: { xs: "0 10px", md: "0 16px" },
@@ -133,10 +184,12 @@ const ThirdSlider = () => {
                       borderColor: "rgb(15,146,233)",
                       boxShadow: "none",
                       width: { xs: '100%', sm: '50%', md: '25%' },
-                      height: 327
+                      height: 327,
+                      display: 'flex',
+                      flexDirection: 'column',
                     }}>
-                    <CardContent sx={{ p: 2.5 }}>
-                      <Box>
+                    <CardContent sx={{ p: 2.5, flexGrow: 1, overflow: 'hidden' }}>
+                      <Box sx={{ display: "flex", flexDirection: "column", height: '100%', overflow: 'hidden' }}>
                         <Box sx={{ display: "flex", alignItems: "center" }}>
                           <Avatar
                             alt="Avatar"
@@ -163,26 +216,27 @@ const ThirdSlider = () => {
                         </Box>
 
                         <Box sx={{ mt: 6.5 }}>
-                          <Typography sx={{ fontSize: "16.2px" }} color="white">
-                            {slider.caption}
+                          <Typography sx={{ fontSize: "16.4px" }} color="white" >
+                            {slider.title}
                           </Typography>
                         </Box>
-                        <Box sx={{ mt: 7.5 }}>
+                        <Box sx={{ mt: "auto", mb: 1.5 }}>
                           <Link href="#" underline="" color="rgb(53, 160, 231)">
                             بیشتر
                           </Link>
                         </Box>
-                        <Box sx={{
-                          display: "flex",
-                          justifyContent: "center",
-                          mt: 4
-                        }}>
-                          <Typography sx={{ fontSize: "12px" }} color={grey[500]}>
-                            ۱۴۰۳/۱۱/۲۸
-                          </Typography>
-                        </Box>
                       </Box>
                     </CardContent>
+                    <Box sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      mt: 'auto',
+                      mb: 2.5
+                    }}>
+                      <Typography sx={{ fontSize: "12px" }} color={grey[500]}>
+                        ۱۴۰۳/۱۱/۲۸
+                      </Typography>
+                    </Box>
                   </Card>
                 ))}
               </Box>
@@ -194,4 +248,4 @@ const ThirdSlider = () => {
   );
 }
 
-export default ThirdSlider;
+export default TweetSlider;
