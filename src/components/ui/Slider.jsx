@@ -3,66 +3,64 @@ import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined';
 import MicNoneIcon from '@mui/icons-material/MicNone';
 import MovieCreationIcon from '@mui/icons-material/MovieCreation';
 import TextSnippetIcon from '@mui/icons-material/TextSnippet';
-import { Avatar, Box, Divider, Typography } from '@mui/material';
-import { blue, green, grey, orange, pink, purple, yellow } from '@mui/material/colors';
+import { Avatar, Box, Divider, Typography, useMediaQuery } from '@mui/material';
+import { grey } from '@mui/material/colors';
+import axios from 'axios';
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from 'react';
+
 const Slider = () => {
+  const [data, setData] = useState([]);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("https://api.masaf.ir/api/v1/content/portalContentStatistics/");
+        setData(response.data.data);
+      } catch (error) {
+        setError("Error");
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (error) return <p>{error}</p>;
+
   const [positionIndex, setPositionIndex] = useState(0);
 
-  const sliders = [
-    { title: "موسیقی", caption: "موسیقی", photo: "https://cdn.masaf.ir/portal/media/image/2023-10-23_15.42.46.jpg", color: grey[400] },
-    { title: "سدن پوش", caption: "سدن پوش", photo: "https://cdn.masaf.ir/portal/media/image/2023-10-23_15.34.20.jpg", color: "white" },
-    { title: "استدیو", caption: "استدیو", photo: "https://cdn.masaf.ir/portal/media/image/2023-10-23_15.22.57.jpg", color: "white" },
-    { title: "اقتصاد", caption: "اقصتاد", photo: "https://cdn.masaf.ir/portal/media/image/Eghtesad.jpg", color: blue[800] },
-    { title: "آرما", caption: "آرما", photo: "https://cdn.masaf.ir/portal/media/image/2023-10-25_15.39.14.jpg", color: orange[400] },
-    { title: "نجوا", caption: "نجوا", photo: "https://cdn.masaf.ir/portal/media/image/2023-10-31_14.20.28.jpg", color: "red" },
-    { title: "سلامت", caption: "سلامت", photo: "https://cdn.masaf.ir/portal/media/image/4.jpg", color: green[200] },
-    { title: "نویسا", caption: "نویسا", photo: "https://cdn.masaf.ir/portal/media/image/2023-10-25_15.57f.59.jpg", color: pink[200] },
-    { title: "امنیت غذایی", caption: "امنیت غذایی", photo: "https://cdn.masaf.ir/portal/media/image/2023-10-25_15.49.44.jpg", color: "white" },
-    { title: "بین الملل", caption: "بین الملل", photo: "https://cdn.masaf.ir/portal/media/image/ENG_Eng_nLcV8iK.jpg", color: "white" },
-    { title: "نشر", caption: "نشر", photo: "https://cdn.masaf.ir/portal/media/image/P_Nashr.jpg", color: grey[500] },
-    { title: "قند عسل", caption: "کودک", photo: "https://cdn.masaf.ir/portal/media/image/کودک.jpg", color: yellow[700] },
-    { title: "مدرسه مصاف", caption: "مدرسه مصاف", photo: "https://cdn.masaf.ir/portal/media/image/Picsart_24-11-26_17-28-43-120.jpg", color: "white" },
-    { title: "مهندسی", caption: "مهندسی", photo: "https://cdn.masaf.ir/portal/media/image/2100567811_-408792649-1.png.jpeg", color: green[700] },
-    { title: "قندآب", caption: "قندآب", photo: "https://cdn.masaf.ir/portal/media/image/Ghandab.jpg", color: "pink" },
-    { title: "محیط زیست", caption: "محیط زیست", photo: "https://cdn.masaf.ir/portal/media/image/2023-10-25_22.26.23.jpg", color: "white" },
-    { title: "مهر مهدوی", caption: "مهر مهدوی", photo: "https://cdn.masaf.ir/portal/media/image/2023-10-25_15.52.56.jpg", color: "white" },
-    { title: "مهندسی", caption: "مهندسی", photo: "https://cdn.masaf.ir/portal/media/image/2100567811_-408792649-1.png.jpeg", color: grey[800] },
-    { title: "مهدیاران", caption: "مهدیاران", photo: "https://cdn.masaf.ir/portal/media/image/Mahdiaran.jpg", color: "skyblue" },
-    { title: "اهل بیت مدیا", caption: "اهل بیت مدیا", photo: "https://cdn.masaf.ir/portal/media/image/2023-10-25_15.54.58.jpg", color: "white" },
-    { title: "واحد نوجوان موسسه مصاف", caption: "برنا", photo: "https://cdn.masaf.ir/portal/media/image/Borna.jpg", color: purple[400] },
-  ];
   useEffect(() => {
+    if (data.length < 2) return;
     const interval = setInterval(() => {
-      setPositionIndex((prevIndex) => (prevIndex + 1) % sliders.length);
-    }, 3000)
+      setPositionIndex((prevIndex) => (prevIndex + 1) % data.length);
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, [sliders.length])
+  }, [data.length]);
+
+  const isMobile = useMediaQuery('(max-width:600px)');
+  const isSmall = useMediaQuery('(max-width:900px)');
+  const isMedium = useMediaQuery('(max-width:1200px)');
+  const isLarge = useMediaQuery('(max-width:1536px)');
+
+  let sliderWidth;
+  if (isMobile) {
+    sliderWidth = '100%';
+  } else if (isSmall) {
+    sliderWidth = '81%';
+  } else if (isMedium) {
+    sliderWidth = '40%';
+  } else if (isLarge) {
+    sliderWidth = '34%';
+  } else {
+    sliderWidth = '32.5%';
+  }
 
   const positions = [
-    "center",
-    "right1",
-    "right",
-    "right2",
-    "right3",
-    "right4",
-    "right5",
-    "right6",
-    "right7",
-    "right8",
-    "right9",
-    "left7",
-    "left9",
-    "left8",
-    "left6",
-    "left5",
-    "left4",
-    "left3",
-    "left2",
-    "left",
-    "left1",
+    "center", "right1", "right", "right2", "right3", "right4", "right5",
+    "right6", "right7", "right8", "right9", "right10", "left7", "left14",
+    "left13", "left12", "left11", "left10", "left9", "left8", "left6",
+    "left5", "left4", "left3", "left2", "left", "left1",
   ];
 
   const slidersVariants = {
@@ -86,19 +84,23 @@ const Slider = () => {
     right8: { x: "84%", scale: 0.35, zIndex: 12 },
     left8: { x: "-71.7%", scale: 0.46, zIndex: 12 },
     right9: { x: "88%", scale: 0.30, zIndex: 11 },
-    left9: { x: "-76%", scale: 0.40, zIndex: 11 }
+    left9: { x: "-76%", scale: 0.40, zIndex: 11 },
+    right10: { x: "91%", scale: 0.27, zIndex: 10 },
+    left10: { x: "-80%", scale: 0.35, zIndex: 10 },
+    left11: { x: "-83%", scale: 0.31, zIndex: 9 },
+    left12: { x: "-85%", scale: 0.28, zIndex: 8 },
+    left13: { x: "-87.5%", scale: 0.24, zIndex: 7 },
+    left14: { x: "-89.9%", scale: 0.20, zIndex: 6 },
   };
 
   return (
     <>
       <Box sx={{ backgroundColor: "rgba(250, 179, 63, 0.2)", mt: 7 }}>
-
         <Box sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center", gap: .8, pt: 5.5
         }}>
-
           <Box
             sx={{
               width: "30%",
@@ -107,18 +109,11 @@ const Slider = () => {
           >
             <Divider sx={{ borderWidth: 1, opacity: 0 }} />
           </Box>
-          <FiberManualRecordIcon sx={{
-            fontSize: "11px", color: "#26A69A"
-          }} />
-          <Typography sx={{
-            fontSize: "22px", color: "#26A69A", ml: 2
-            , mr: 2
-          }}>
+          <FiberManualRecordIcon sx={{ fontSize: "11px", color: "#26A69A" }} />
+          <Typography sx={{ fontSize: "22px", color: "#26A69A", ml: 2, mr: 2 }}>
             واحد های مصاف
           </Typography>
-          <FiberManualRecordIcon sx={{
-            fontSize: "11px", color: "#26A69A"
-          }} />
+          <FiberManualRecordIcon sx={{ fontSize: "11px", color: "#26A69A" }} />
           <Box
             sx={{
               width: "30%",
@@ -139,68 +134,50 @@ const Slider = () => {
           height: "276px",
           overflow: "hidden",
         }}>
-          {sliders.map((slider, index) => (
+          {data.map((slider, index) => (
             <motion.div
-              key={index}
+              key={slider.id}
               initial="center"
               animate={positions[(positionIndex + index) % positions.length]}
               variants={slidersVariants}
               transition={{ duration: 0.5 }}
               style={{
-                width: '32.5%',
+                width: sliderWidth,
                 position: "absolute",
                 backgroundColor: "#fff",
                 borderRadius: "10px",
-                border: `1px solid ${slider.color}`,
                 boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
                 overflow: "hidden", paddingBottom: 20
               }}
             >
-              <Box
-                sx={{ px: 2 }}
-              >
+              <Box sx={{ px: 2 }}>
                 <Box sx={{ display: "flex", gap: 1, mt: 2 }}>
-                  <Avatar src={slider.photo} />
-                  <Typography sx={{
-                    fontSize: "20px",
-                    color: "#333",
-                  }}>{slider.title}</Typography>
+                  <Avatar src={slider.image} />
+                  <Typography sx={{ fontSize: "20px", color: "#333" }}>{slider.name}</Typography>
                 </Box>
-
                 <Typography sx={{
-                  mt: 2,
-                  marginBottom: 9,
-                  fontSize: "16px",
-                  color: "#666",
-
-                }}>{slider.caption}</Typography>
-                <Box style={{
-                  display: "flex", gap: 20
-                }}>
+                  mt: 2, height: 20, marginBottom: 9,
+                  fontSize: "14.4px", color: "#666"
+                }}>{slider.description}</Typography>
+                <Box style={{ display: "flex", gap: 20, mt: "auto" }}>
                   <Typography sx={{
-                    color: grey[700], fontSize: "15px",
-                    display: "flex",
+                    color: grey[700], fontSize: "15px", display: "flex",
                     alignItems: "center"
-                  }}><MicNoneIcon />۲ صدا
-                  </Typography>
+                  }}><MicNoneIcon />۲ صدا</Typography>
                   <Typography sx={{
-                    color: grey[700], fontSize: "15px",
-                    display: "flex",
+                    color: grey[700], fontSize: "15px", display: "flex",
                     alignItems: "center"
                   }}><TextSnippetIcon />۵ نوشته</Typography>
                   <Typography sx={{
-                    color: grey[700], fontSize: "15px",
-                    display: "flex",
+                    color: grey[700], fontSize: "15px", display: "flex",
                     alignItems: "center"
                   }}><MovieCreationIcon />۹ کلیپ</Typography>
                   <Typography sx={{
-                    color: grey[700], fontSize: "15px",
-                    display: "flex",
+                    color: grey[700], fontSize: "15px", display: "flex",
                     alignItems: "center"
                   }}><InsertPhotoOutlinedIcon />۷ تصویر</Typography>
                 </Box>
               </Box>
-
             </motion.div>
           ))}
         </Box>
@@ -210,10 +187,3 @@ const Slider = () => {
 };
 
 export default Slider
-
-
-
-
-
-
-
